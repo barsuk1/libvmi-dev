@@ -1,3 +1,7 @@
+1.Make sure that you have legacy (not UEFI) BIOS 
+2. Turn on Intel VT-d/Vt-x in the BIOS . Usually you shoud look for these in Security section in BIOS
+3. Install Ubuntu , use LVM and make sure to leave some space for future DOM-U installations. Go to Live CD option, open terminal and
+follow (more or less) the instructions here https://www.debuntu.org/how-to-install-ubuntu-on-lvm-partitions/, although they are a bit outdated wrt Ubuntu 16
 
 
 sudo apt-get install xen-hypervisor-amd64
