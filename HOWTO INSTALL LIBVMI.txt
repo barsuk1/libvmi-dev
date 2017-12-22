@@ -1,0 +1,30 @@
+
+
+sudo apt-get install xen-hypervisor-amd64
+
+sudo reboot  now
+sudo xl list
+
+
+sudo apt-get install gcc
+sudo apt-get install automake
+sudo apt-get install flex
+sudo apt-get install yacc
+sudo apt-get install bison
+sudo apt-get install git
+git clone https://github.com/libvmi/libvmi.git
+
+sudo apt-get install libxen-dev
+
+sudo apt-get install libtool
+sudo apt-get install autoconf
+sudo apt-get install make
+sudo apt-get install pkg-config
+sudo apt-get install libglib2.0-dev
+sudo apt-get install libjson-c-dev
+
+cd libvmi/
+ls
+./autogen.sh 
+./configure --disable-kvm
+make
