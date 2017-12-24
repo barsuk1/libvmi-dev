@@ -1,32 +1,17 @@
-1.Make sure that you have legacy (not UEFI) BIOS 
+1. Make sure that you are booting into legacy (not UEFI) BIOS 
 2. Turn on Intel VT-d/Vt-x in the BIOS . Usually you shoud look for these in Security section in BIOS
-3. Install Ubuntu , use LVM and make sure to leave some space for future DOM-U installations. Go to Live CD option, open terminal and
-follow (more or less) the instructions here https://www.debuntu.org/how-to-install-ubuntu-on-lvm-partitions/, although they are a bit outdated wrt Ubuntu 16
+3. Install Ubuntu , use LVM and make sure to leave some space for future DOM-U installations. It wprked for me on NUC with Ubuntu LTS
+but not on other box(es) , so I'd say use ubuntu server to be sure. When partitioning use LVM and decrease the partition size to 20G ,
+the rest you can use to start VMs later
+4. Install Xen: sudo apt-get install xen-hypervisor-amd64
+5. sudo reboot  now
+6. add GRUB_CMDLINE_LINUX_DEFAULT="quiet splash nomodeset" if you experience blank screen after reboot. run sudo update-grub
+7. sudo xl list, should see Dom-0
 
+8. sudo apt-get install gcc automake flex bison git libxen-dev libtool autoconf make pkg-config libglib2.0-dev libjson-c-dev
+9. git clone https://github.com/libvmi/libvmi.git
 
-sudo apt-get install xen-hypervisor-amd64
-
-sudo reboot  now
-sudo xl list
-
-
-sudo apt-get install gcc
-sudo apt-get install automake
-sudo apt-get install flex
-sudo apt-get install yacc
-sudo apt-get install bison
-sudo apt-get install git
-git clone https://github.com/libvmi/libvmi.git
-
-sudo apt-get install libxen-dev
-
-sudo apt-get install libtool
-sudo apt-get install autoconf
-sudo apt-get install make
-sudo apt-get install pkg-config
-sudo apt-get install libglib2.0-dev
-sudo apt-get install libjson-c-dev
-
+10.
 cd libvmi/
 ls
 ./autogen.sh 
