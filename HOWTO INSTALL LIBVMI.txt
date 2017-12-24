@@ -1,7 +1,7 @@
 1. Make sure that you are booting into legacy (not UEFI) BIOS 
 2. Turn on Intel VT-d/Vt-x in the BIOS . Usually you shoud look for these in Security section in BIOS
-3. Install Ubuntu , use LVM and make sure to leave some space for future DOM-U installations. It wprked for me on NUC with Ubuntu LTS
-but not on other box(es) , so I'd say use ubuntu server to be sure. When partitioning use LVM and decrease the partition size to 20G ,
+3. Install Ubuntu , use LVM and make sure to leave some space for future DOM-U installations. It worked for me on NUC with Ubuntu LTS
+but not on other box(es) , so I'd say use ubuntu server to be sure. When partitioning use LVM and decrease the partition size to 10-20G ,
 the rest you can use to start VMs later
 4. Install Xen: sudo apt-get install xen-hypervisor-amd64
 5. sudo reboot  now
