@@ -17,3 +17,14 @@ ls
 ./autogen.sh 
 ./configure --disable-kvm
 make
+
+If you want to install and run Windows VM on XEN with libvmi
+1. Find an ISO image of Windows and copy it to the host
+3. Create an lvgroup for disk, lvcreate --name <name> --size 20G vg, assuming your VG name is vg.
+You can use vgrename to change the name of your VG 
+2. Windows must be an HVM Domain. You can use /etc/xen/examples.hvm and cahnge it as necessary
+Add boot="cd" and path to the cdrom drive. Edit file name to point to your lv and set vif to xenbr0
+Use VNC=1 and vnclisten="0.0.0.0" 
+3. Create xenbr0, follow Xen instructions
+4. sudo xl create <name-of-your-file>
+5. Once it have started open a VNC session from another computer to the xenbr0 ip address and install Windows
